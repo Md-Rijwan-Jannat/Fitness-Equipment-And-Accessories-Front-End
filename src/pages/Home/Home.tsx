@@ -3,6 +3,10 @@ import banner_video from "../../assets/videos/BannerVideo.mp4";
 import Container from "@/components/ui/container";
 import CategoriesSection from "@/components/homePage/categoriesSection/CategoriesSection";
 import FeaturedProducts from "@/components/homePage/featuredProducts/FeaturedProducts";
+import BenefitsSection from "@/components/homePage/benefitsSection/BenefitsSection";
+import ImageGallery from "@/components/homePage/imageGallery/ImageGallery";
+import ChooseUs from "@/components/homePage/chooseUs/ChooseUs";
+import Testimonials from "@/components/homePage/testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -19,6 +23,10 @@ const Home = () => {
       <Container>
         <CategoriesSection />
         <FeaturedProducts />
+        <BenefitsSection />
+        <ImageGallery />
+        <ChooseUs />
+        <Testimonials />
       </Container>
     </section>
   );

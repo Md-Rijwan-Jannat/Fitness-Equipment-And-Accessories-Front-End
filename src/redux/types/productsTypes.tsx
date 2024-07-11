@@ -1,3 +1,4 @@
-export type TLimit = {
+export type TQuery = {
   limit?: number;
+  category?: string;
 };

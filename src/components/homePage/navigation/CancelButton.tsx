@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 const CancelButton = () => {
   return (
     <Button
-      className="border border-buttonHoverColor hover:bg-buttonHoverColor hover:text-secondaryColor rounded-full"
+      className="border border-buttonHoverColor hover:bg-buttonHoverColor hover:text-secondaryColor rounded-full transition-colors duration-500"
       variant="outline"
     >
       <HeroIcons className="size-6" icon="x" />

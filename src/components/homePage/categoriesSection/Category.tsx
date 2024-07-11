@@ -1,11 +1,22 @@
-const Category = ({ category }: { category: string }) => {
+// src/components/Category.js
+
+import HeroIcons from "@/components/icons/HeroIcons";
+import { NavLink } from "react-router-dom";
+
+type TCategoryProps = {
+  category: string;
+  link: string;
+};
+
+const Category = ({ category, link }: TCategoryProps) => {
   return (
-    <div
-      key={category}
-      className="px-4 py-1 border border-primaryColor rounded-3xl shadow-md hover:bg-primaryColor hover:text-white transition-colors duration-500"
+    <NavLink
+      to={link}
+      className="px-4 py-1 border border-primaryColor rounded-3xl shadow-md hover:bg-primaryColor hover:text-white transition-colors duration-500 flex gap-2"
     >
-      <h2 className="poppins-regular text-[14px]">{category}</h2>
-    </div>
+      <HeroIcons icon="tag" className="size-4" />
+      {category}
+    </NavLink>
   );
 };
 

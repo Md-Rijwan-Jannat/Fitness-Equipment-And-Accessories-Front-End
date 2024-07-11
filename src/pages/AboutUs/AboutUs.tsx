@@ -11,7 +11,7 @@ const AboutUs = () => {
         headerText1={`./About Us`}
         headerText2={``}
         buttonText="Contact"
-        className="relative w-full h-[45vh] md:h-[25vh]"
+        className="relative w-full h-[70vh] md:h-[60vh]"
       />
       <Container>
         <h1 className="text-4xl font-bold text-center">About Us</h1>

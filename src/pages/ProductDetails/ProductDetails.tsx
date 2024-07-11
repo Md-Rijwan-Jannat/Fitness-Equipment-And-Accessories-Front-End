@@ -1,8 +1,15 @@
+import CustomerReviews from "@/components/productDetailsPage/CustomerReview";
+import ProductDetailsPage from "@/components/productDetailsPage/ProductDetailsPage";
+import Container from "@/components/ui/container";
+
 const ProductDetails = () => {
   return (
-    <div>
-      <h1>ProductDetails</h1>
-    </div>
+    <section>
+      <Container>
+        <ProductDetailsPage />
+        <CustomerReviews />
+      </Container>
+    </section>
   );
 };
 

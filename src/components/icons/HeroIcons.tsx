@@ -11,7 +11,10 @@ type IconName =
   | "facebook"
   | "twitter"
   | "instagram"
-  | "linkedin"; // Add more icon names here as you create more icons
+  | "linkedin"
+  | "check"
+  | "star"
+  | "tag"; // Add more icon names here as you create more icons
 
 interface HeroIconsProps extends React.SVGProps<SVGSVGElement> {
   icon: IconName;
@@ -154,6 +157,62 @@ const HeroIcons = ({ icon, className, style, ...props }: HeroIconsProps) => {
         {...props}
       >
         <path d="M22.23 0H1.77C.79 0 0 .774 0 1.725v20.55C0 23.225.79 24 1.77 24h20.46C23.21 24 24 23.225 24 22.275V1.725C24 .774 23.21 0 22.23 0zM7.06 20.452H3.56V9.028h3.5v11.424zM5.311 7.68a2.034 2.034 0 1 1 0-4.068 2.034 2.034 0 0 1 0 4.068zM20.454 20.452h-3.503v-5.832c0-1.388-.028-3.175-1.935-3.175-1.936 0-2.233 1.51-2.233 3.07v5.937H9.778V9.028h3.362v1.561h.048c.469-.89 1.615-1.83 3.325-1.83 3.555 0 4.21 2.34 4.21 5.384v6.309h-.268z" />
+      </svg>
+    ),
+    check: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        className={`${className}`}
+        {...props}
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+        />
+      </svg>
+    ),
+    star: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        className={`${className}`}
+        {...props}
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+        />
+      </svg>
+    ),
+    tag: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="size-6"
+        {...props}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6 6h.008v.008H6V6Z"
+        />
       </svg>
     ),
     // Add more icons here

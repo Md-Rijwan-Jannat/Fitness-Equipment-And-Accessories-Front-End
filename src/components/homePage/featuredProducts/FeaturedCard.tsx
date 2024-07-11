@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { TProduct } from "@/types";
+import { NavLink } from "react-router-dom";
 
 const FeaturedCard = ({ _id, images, name, price }: TProduct) => {
   return (
@@ -23,12 +24,14 @@ const FeaturedCard = ({ _id, images, name, price }: TProduct) => {
           <span className="text-xl font-bold text-primaryColor">
             ${price.toFixed(2)}
           </span>
-          <Button
-            className="bg-secondaryColor text-primaryColor 
-                hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none md:w-[140px] poppins-medium text-[10px] md:text-[16px] md:h-[50px] transition-colors duration-500"
-          >
-            View Details
-          </Button>
+          <NavLink to={`/product-details/${_id}`}>
+            <Button
+              className="bg-secondaryColor text-primaryColor 
+                hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none md:w-[120px] poppins-medium text-[10px] md:text-[16px] md:h-[35px] poppins-regular transition-colors duration-500"
+            >
+              View Details
+            </Button>
+          </NavLink>
         </div>
       </div>
     </div>

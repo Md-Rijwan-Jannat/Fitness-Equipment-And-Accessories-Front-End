@@ -1,6 +1,7 @@
 import Banner from "@/components/banner/Banner";
 import Container from "@/components/ui/container";
 import product_banner from "../../assets/images/product/product-banner.avif";
+import Product from "@/components/productPage/Product";
 
 const Products = () => {
   return (
@@ -11,10 +12,10 @@ const Products = () => {
         headerText1={`./Products`}
         headerText2={``}
         buttonText="Shop Now"
-        className="relative w-full h-[45vh] md:h-[25vh]"
+        className="relative w-full h-[70vh] md:h-[60vh]"
       />
       <Container>
-        <h1 className="text-4xl font-bold text-center">Products</h1>
+        <Product />
       </Container>
     </section>
   );
