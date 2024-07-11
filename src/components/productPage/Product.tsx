@@ -25,7 +25,7 @@ const Product: React.FC = () => {
 
   const queryParams: TProductQueryParams = {
     searchTerm,
-    categories: categories.join(","),
+    categories: categories.join(","), // Join categories as a comma-separated string
     page: currentPage,
     minPrice: isNaN(minPrice) ? 0 : minPrice,
     maxPrice: isNaN(maxPrice) ? 10000 : maxPrice,
@@ -39,7 +39,9 @@ const Product: React.FC = () => {
     setSelectedCategories(categories);
     if (data) {
       const uniqueCats = Array.from(
-        new Set<string>(data.data.map((product: TProduct) => product.category))
+        new Set<string>(
+          data?.data?.map((product: TProduct) => product.category)
+        )
       );
       setUniqueCategories(uniqueCats);
       setCurrentPage(page);
@@ -111,7 +113,7 @@ const Product: React.FC = () => {
   const handleClearFilters = () => {
     setSelectedCategories([]);
     setSearchParams({
-      searchTerm,
+      searchTerm: "", // Clear search term
       minPrice: "", // Show all if empty
       maxPrice: "", // Show all if empty
       sort,
@@ -120,12 +122,7 @@ const Product: React.FC = () => {
     });
   };
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching products</p>;
-
-  const products: TProduct[] = data?.data || [];
-
-  const filteredProducts = products.filter((product: TProduct) => {
+  const filteredProducts = data?.data.filter((product: TProduct) => {
     // Filter by price range
     if (
       (!isNaN(minPrice) && product.price < minPrice) ||
@@ -166,8 +163,8 @@ const Product: React.FC = () => {
       {/* Filters */}
       <div className="mb-4">
         <h3 className="poppins-bold text-[18px] mb-5 text-lg">Filters</h3>
-        <div className="flex flex-wrap gap-14">
-          {uniqueCategories.map((category) => (
+        <div className="flex flex-wrap gap-3 md:gap-14">
+          {uniqueCategories?.map((category) => (
             <label key={category} className="flex items-center gap-2">
               <Input
                 type="checkbox"
@@ -180,11 +177,11 @@ const Product: React.FC = () => {
             </label>
           ))}
         </div>
-        <div className="mt-4">
+        <div className="mt-5">
           <label className="flex mt-2 items-center gap-5 poppins-regular">
             Min Price:
             <Input
-              className="bg-secondaryColor text-primaryColor placeholder:text-linkHoverColor rounded-3xl border border-buttonHoverColor hover:border-buttonHoverColor focus:outline-none focus:border-0 focus:ring-[.5px] w-full md:w-[300px] xl:w-[350px] h-[35px] md:h-[50px] mt-4 md:mt-0"
+              className="w-[100px] h-[30px] border-none bg-gray-200 focus:ring-1 focus:ring-primaryColor rounded-full"
               type="number"
               value={minPrice || ""}
               onChange={(e) => handlePriceChange(e, "minPrice")}
@@ -193,7 +190,7 @@ const Product: React.FC = () => {
           <label className="flex mt-2 items-center gap-5 poppins-regular">
             Max Price:
             <Input
-              className="bg-secondaryColor text-primaryColor placeholder:text-linkHoverColor rounded-3xl border border-buttonHoverColor hover:border-buttonHoverColor focus:outline-none focus:border-0 focus:ring-[.5px] w-full md:w-[300px] xl:w-[350px] h-[35px] md:h-[50px] mt-4 md:mt-0"
+              className="w-[100px] h-[30px] border-none bg-gray-200 focus:ring-1 focus:ring-primaryColor rounded-full"
               type="number"
               value={maxPrice || ""}
               onChange={(e) => handlePriceChange(e, "maxPrice")}
@@ -220,9 +217,29 @@ const Product: React.FC = () => {
         </label>
       </div>
 
+      {/* Search Input */}
+      <div className="my-8 md:my-12 flex items-center gap-5  justify-center">
+        <p className="poppins-regular whitespace-nowrap mt-4 md:mt-0">
+          Search Here
+        </p>
+        <Input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchParams({
+              ...Object.fromEntries(searchParams.entries()),
+              searchTerm: e.target.value,
+              page: "1",
+            });
+          }}
+          className="bg-secondaryColor text-primaryColor placeholder:text-linkHoverColor rounded-3xl border border-buttonHoverColor hover:border-buttonHoverColor focus:outline-none focus:border-0 focus:ring-[.5px] w-full md:w-[300px] xl:w-[350px] h-[35px] md:h-[50px] mt-4 md:mt-0"
+        />
+      </div>
+
       {/* Product List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16">
-        {filteredProducts.map((product: TProduct) => (
+        {filteredProducts?.map((product: TProduct) => (
           <ProductCard key={product._id} {...product} />
         ))}
       </div>

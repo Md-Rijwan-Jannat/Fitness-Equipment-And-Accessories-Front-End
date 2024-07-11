@@ -43,15 +43,15 @@ const ProductDetailsPage = () => {
       <Breadcrumb category={product.category} productName={product.name} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="h-full rounded overflow-hidden">
-          <div className="relative h-80 overflow-hidden">
+          <div className="relative h-52 md:h-80 overflow-hidden">
             <motion.div
-              className="absolute inset-0 w-full h-80 overflow-hidden"
+              className="absolute inset-0 w-full h-52 md:h-80 overflow-hidden"
               transition={{ duration: 0.5 }}
             >
               <motion.img
                 src={selectedImage || product.images[0]}
                 alt={product.name}
-                className="w-full h-80 overflow-hidden object-cover"
+                className="w-full h-52 md:h-80 overflow-hidden object-cover"
               />
             </motion.div>
           </div>
@@ -73,7 +73,7 @@ const ProductDetailsPage = () => {
           </div>
         </div>
         <div className="p-4">
-          <h1 className="text-3xl font-semibold text-primaryColor mb-3">
+          <h1 className="text-2xl md:text-3xl font-semibold text-primaryColor mb-3">
             {product.category}/{product.name}
           </h1>
           <div className="flex items-center mb-8">
