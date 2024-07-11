@@ -48,7 +48,7 @@ const Banner = ({
             {headerText2}
           </h1>
         </div>
-        <Button className="bg-secondaryColor text-buttonHoverColor hover:bg-buttonHoverColor rounded-[32px] hover:text-secondaryColor w-[120px] md:w-[160px] h-[40px] md:h-[60px] poppins-bold mt-[88px]">
+        <Button className="bg-secondaryColor text-buttonHoverColor hover:bg-buttonHoverColor rounded-[32px] hover:text-secondaryColor w-[120px] md:w-[160px] h-[40px] md:h-[60px] poppins-bold mt-[88px] transition-colors duration-500">
           {buttonText}
         </Button>
       </div>

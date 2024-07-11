@@ -1,10 +1,12 @@
-import Banner from "@/components/homePage/Banner";
+import Banner from "@/components/banner/Banner";
 import banner_video from "../../assets/videos/BannerVideo.mp4";
 import Container from "@/components/ui/container";
+import CategoriesSection from "@/components/homePage/categoriesSection/CategoriesSection";
+import FeaturedProducts from "@/components/homePage/featuredProducts/FeaturedProducts";
 
 const Home = () => {
   return (
-    <section>
+    <section className="mb-16">
       <Banner
         isVideo={true}
         mediaSrc={banner_video}
@@ -15,7 +17,8 @@ const Home = () => {
         headerHeight="-mt-[70px]"
       />
       <Container>
-        <h1 className="text-4xl font-bold text-center">Home</h1>
+        <CategoriesSection />
+        <FeaturedProducts />
       </Container>
     </section>
   );

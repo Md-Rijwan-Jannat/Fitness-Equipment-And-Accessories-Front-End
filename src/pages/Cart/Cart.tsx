@@ -1,4 +1,4 @@
-import Banner from "@/components/homePage/Banner";
+import Banner from "@/components/banner/Banner";
 import Container from "@/components/ui/container";
 import cart_banner from "../../assets/images/cart/cart-banner.jpeg";
 

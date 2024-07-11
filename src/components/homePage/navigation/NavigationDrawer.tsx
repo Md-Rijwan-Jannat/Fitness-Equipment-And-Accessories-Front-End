@@ -13,7 +13,7 @@ import CancelButton from "./CancelButton";
 
 const NavigationDrawer = () => {
   const navLink =
-    "flex items-center text-primaryColor hover:text-linkHoverColor poppins-semibold rounded-2xl border border-buttonHoverColor whitespace-nowrap px-2 w-full";
+    "flex items-center text-primaryColor hover:text-linkHoverColor poppins-semibold rounded-2xl border border-buttonHoverColor whitespace-nowrap px-2 w-full transition-colors duration-500";
 
   return (
     <div className="block md:hidden">
@@ -21,7 +21,8 @@ const NavigationDrawer = () => {
         <DrawerTrigger>
           <Button
             size="sm"
-            className="bg-buttonHoverColor text-secondaryColor hover:bg-secondaryColor rounded-full hover:text-buttonHoverColor"
+            className="bg-buttonHoverColor text-secondaryColor hover:bg-secondaryColor rounded-full hover:text-buttonHoverColor
+            transition-colors duration-500"
           >
             <HeroIcons icon="menu" className="size-6" />
           </Button>

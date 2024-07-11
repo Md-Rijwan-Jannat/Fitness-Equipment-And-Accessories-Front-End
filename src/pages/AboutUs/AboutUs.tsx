@@ -1,4 +1,4 @@
-import Banner from "@/components/homePage/Banner";
+import Banner from "@/components/banner/Banner";
 import Container from "@/components/ui/container";
 import aboutUs_banner from "../../assets/images/aboutUs/aboutUs-banner.jpg";
 

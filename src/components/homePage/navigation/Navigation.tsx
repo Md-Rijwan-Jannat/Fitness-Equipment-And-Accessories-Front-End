@@ -5,7 +5,7 @@ import Links from "./Links";
 
 const Navigation = () => {
   const navLink =
-    "flex items-center text-secondaryColor hover:text-linkHoverColor text-poppins-semibold";
+    "flex items-center text-secondaryColor hover:text-linkHoverColor text-poppins-semibold transition-colors duration-300";
 
   return (
     <Container>
