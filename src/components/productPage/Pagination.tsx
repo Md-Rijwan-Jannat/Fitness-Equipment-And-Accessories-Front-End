@@ -25,11 +25,15 @@ const ProductPagination = ({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious onClick={() => goToPage(currentPage - 1)} />
+          <PaginationPrevious
+            className="bg-primaryColor text-secondaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-secondaryColor hover:border-none md:w-[140px] poppins-medium text-[10px] md:text-[16px] md:h-[50px] transition-colors duration-500"
+            onClick={() => goToPage(currentPage - 1)}
+          />
         </PaginationItem>
         {pages.map((page) => (
-          <PaginationItem key={page}>
+          <PaginationItem className="mx-3" key={page}>
             <PaginationLink
+              className="bg-gray-300 border rounded-full size-12"
               isActive={page === currentPage}
               onClick={() => goToPage(page)}
             >
@@ -41,7 +45,10 @@ const ProductPagination = ({
           <PaginationEllipsis />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext onClick={() => goToPage(currentPage + 1)} />
+          <PaginationNext
+            className="bg-primaryColor text-secondaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-secondaryColor hover:border-none md:w-[140px] poppins-medium text-[10px] md:text-[16px] md:h-[50px] transition-colors duration-500"
+            onClick={() => goToPage(currentPage + 1)}
+          />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

@@ -4,10 +4,9 @@ import SectionTittle from "@/components/ui/sectionTittle";
 import FeaturedSlider from "./FeaturedSlider";
 
 const FeaturedProductsSection = () => {
-  const { data, isLoading, error } = useGetProductsQuery({ limit: 10 });
+  const { data, isLoading } = useGetProductsQuery({ limit: 10 });
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching featured products</p>;
 
   const featuredProducts: TProduct[] =
     data?.data.filter((product: TProduct) => product) || [];

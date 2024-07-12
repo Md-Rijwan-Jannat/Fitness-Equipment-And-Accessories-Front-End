@@ -20,18 +20,29 @@ const ProductDetailsPage = () => {
   const product: TProduct = data?.data;
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
   };
 
   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+    if (quantity < product.stock) {
+      setQuantity(quantity + 1);
+    }
   };
 
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+    }
+  };
+
+  const addToCart = () => {
+    const newCartQuantity = cartQuantity + quantity;
+    if (newCartQuantity <= product.stock) {
+      setCartQuantity(newCartQuantity);
+      // Add to cart logic here (e.g., dispatch an action to add the product to the cart)
     }
   };
 
@@ -89,8 +100,17 @@ const ProductDetailsPage = () => {
           <p className="text-lg text-primaryColor mb-4">
             {product.description}
           </p>
-          <span className="text-xl md:text-2xl font-bold text-primaryColor mb-4 block">
-            ${product.price.toFixed(2)}
+          <span className="text-xl md:text-2xl font-bold text-primaryColor mb-4 flex items-center gap-3">
+            ${product.price.toFixed(2)}{" "}
+            {cartQuantity >= product.stock ? (
+              <p className="text text-[15px] bg-green-200 rounded-3xl px-6 poppins-regular text-red-500">
+                Out of Stock
+              </p>
+            ) : (
+              <p className="text text-[15px] bg-green-200 rounded-3xl px-6 poppins-regular text-green-500">
+                In Stock
+              </p>
+            )}
           </span>
 
           <div className="flex items-center gap-16 mt-8">
@@ -110,10 +130,16 @@ const ProductDetailsPage = () => {
               </button>
             </div>
             <Button
-              className="bg-primaryColor text-secondaryColor 
-                hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none md:w-[120px] poppins-medium text-[10px] md:text-[16px] md:h-[35px] poppins-regular transition-colors duration-500"
+              onClick={addToCart}
+              disabled={cartQuantity >= product.stock}
+              className={`bg-primaryColor text-secondaryColor 
+                hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none md:w-[120px] poppins-medium text-[10px] md:text-[16px] md:h-[35px] poppins-regular transition-colors duration-500 ${
+                  cartQuantity >= product.stock
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
             >
-              Add to Cart
+              {cartQuantity >= product.stock ? "Out of Stock" : "Add to Cart"}
             </Button>
           </div>
           <div className="flex flex-col items-start mt-10 space-y-1">

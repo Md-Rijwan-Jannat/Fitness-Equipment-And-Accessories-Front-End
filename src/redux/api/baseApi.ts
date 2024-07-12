@@ -3,7 +3,10 @@ import { TProductQueryParams } from "@/types";
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl:
+      "https://fitness-equipment-and-accessories-backend.vercel.app/api/v1",
+  }),
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: (params: TProductQueryParams) => {

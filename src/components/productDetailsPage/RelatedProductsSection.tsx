@@ -8,12 +8,11 @@ interface RelatedProductsSectionProps {
 }
 
 const RelatedProductsSection = ({ category }: RelatedProductsSectionProps) => {
-  const { data, isLoading, error } = useGetProductsQuery({
+  const { data, isLoading } = useGetProductsQuery({
     categories: category,
   });
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching related products</p>;
 
   const relatedProducts: TProduct[] =
     data?.data.filter((product: TProduct) => product) || [];

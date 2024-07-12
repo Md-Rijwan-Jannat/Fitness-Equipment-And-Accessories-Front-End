@@ -9,7 +9,7 @@ const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState<TProduct[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const { data, isLoading, error } = useGetProductsQuery({
+  const { data, isLoading } = useGetProductsQuery({
     searchTerm: "",
     categories: "",
     page: 1,
@@ -48,7 +48,6 @@ const SearchInput: React.FC = () => {
   };
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching products</p>;
 
   return (
     <>

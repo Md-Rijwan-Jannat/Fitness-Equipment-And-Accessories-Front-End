@@ -33,7 +33,7 @@ const Product: React.FC = () => {
     limit,
   };
 
-  const { data, isLoading, error } = useGetProductsQuery(queryParams);
+  const { data } = useGetProductsQuery(queryParams);
 
   useEffect(() => {
     setSelectedCategories(categories);
@@ -95,18 +95,6 @@ const Product: React.FC = () => {
     setSearchParams({
       ...Object.fromEntries(searchParams.entries()),
       page: page.toString(),
-    });
-  };
-
-  const handleFilter = () => {
-    setSearchParams({
-      searchTerm,
-      categories: selectedCategories.join(","), // Join categories as a comma-separated string
-      minPrice: minPrice ? minPrice.toString() : "", // Show all if empty
-      maxPrice: maxPrice ? maxPrice.toString() : "", // Show all if empty
-      sort,
-      limit: limit.toString(),
-      page: "1",
     });
   };
 
