@@ -1,8 +1,9 @@
 import Banner from "@/components/banner/Banner";
 import Container from "@/components/ui/container";
 import cart_banner from "../../assets/images/cart/cart-banner.jpeg";
+import AddToCartPage from "@/components/addToCart/AddToCartPage";
 
-const Cart = () => {
+const AddToCart = () => {
   return (
     <section>
       <Banner
@@ -14,12 +15,10 @@ const Cart = () => {
         className="relative w-full h-[70vh] md:h-[60vh]"
       />
       <Container>
-        <h1 className="text-4xl font-bold text-center">
-          Yours Bookmarked Items
-        </h1>
+        <AddToCartPage />
       </Container>
     </section>
   );
 };
 
-export default Cart;
+export default AddToCart;
