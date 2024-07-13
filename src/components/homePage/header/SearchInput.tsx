@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useGetProductsQuery } from "@/redux/api/baseApi";
 import { TProduct } from "@/types";
 import SearchModal from "./SearchModal"; // Import the custom modal component
+import Loading from "@/components/ui/loading";
 
 const SearchInput: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,7 +48,7 @@ const SearchInput: React.FC = () => {
     setSearchTerm(e.target.value);
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <>

@@ -1,72 +1,104 @@
-<div align="center">
-  <h1>FitnessEquipmentAndAccessories</h1>
-</div>
+# Fitness Equipment and Accessories - Frontend
 
----
+## Overview
 
-# FitnessEquipmentAndAccessories
+We're developing a comprehensive e-commerce website for fitness equipment using React and Redux. This platform offers a seamless shopping experience with features like product listings, detailed product pages, and a user-friendly cart system. Additionally, it includes robust product management capabilities for administrators and bonus features such as debounced search and page refresh warnings to enhance performance and user experience. Optional integration with Stripe provides secure payment processing. This project aims to create a modern, efficient, and user-centric online store for fitness enthusiasts.
 
-## Introduction
+## Core Pages and Functionalities
 
-Welcome to **FitnessEquipmentAndAccessories**! This is a comprehensive e-commerce platform designed for fitness enthusiasts to explore, purchase, and review a wide range of fitness equipment and accessories.
+1. **Homepage**
 
-## Project Description
+   - Header Section: Logo and site name.
+   - Navigation Links: Links to other pages.
+   - Hero Section: Visually appealing hero/branding section.
+   - Categories Section: Product categories with images or icons.
+   - Featured Products: Displayed products with a button to view details.
+   - Benefits Section: Highlights the benefits of using the products.
+   - Image Gallery: Mosaic view of images of healthy individuals using the products.
+   - Footer: Contact information, social media links, and other relevant links.
 
-**FitnessEquipmentAndAccessories** is a full-featured e-commerce application that allows users to browse fitness products, add items to their cart, make purchases, and track their orders. It features a modern and user-friendly interface for customers and a robust admin panel for managing products, orders, and users.
+2. **Products Page**
 
-## Features
+   - Product Listings: Images, names, prices, and a button to view details.
+   - Searching and Filtering: Search bar, category and price range filters, sorting options, and "Clear Filter" button.
 
-### User Features
+3. **Product Details Page**
 
-- Browse and search for fitness equipment and accessories.
-- View detailed product information and reviews.
-- Add products to the shopping cart and proceed to checkout.
-- Manage user accounts and view order history.
-- Apply discount codes and track order status.
+   - Product Information: Name, price, stock quantity, description, images, and category.
+   - Add to Cart Button: Adds the product to the cart.
 
-### Admin Features
+4. **Cart Page**
 
-- Manage product listings including adding, updating, and deleting products.
-- View and manage customer orders.
-- Track inventory and update stock levels.
-- Generate sales reports and view analytics.
+   - Cart Items: List of products added to the cart with their quantities.
+   - Controls: Increase/decrease quantity, remove product.
+   - Pricing Details: Detailed total pricing, updated dynamically.
+   - Proceed to Checkout Button: Redirects to the checkout page.
 
-## Technology Stack
+5. **Checkout Page**
 
-### Frontend
+   - User Details: Collects name, email, phone number, and delivery address.
+   - Payment Methods: Cash on Delivery and optional Stripe integration.
 
-- **React**: A JavaScript library for building user interfaces.
-- **Redux**: A state management library for JavaScript applications.
-- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
-- **Ant Design**: A design system for enterprise-level products.
-- **Shadcn UI**: A collection of accessible and customizable UI components.
-- **Axios**: A promise-based HTTP client for making API requests.
-- **React Router**: For handling routing and navigation within the application.
+6. **Product Management**
 
-### Backend
+   - Product List Table: Displays products in a table format with columns for product name, price, category, and actions.
+   - Action Buttons: Update and delete products.
+   - Adding a Product: Fields for name, price, description, images, category, and stock.
 
-- **Node.js**: A JavaScript runtime for building scalable network applications.
-- **Express**: A web application framework for Node.js.
-- **MongoDB**: A NoSQL database for storing data.
-- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB.
-- **TypeScript**: A strongly typed programming language that builds on JavaScript.
-- **JWT**: JSON Web Tokens for authentication and authorization.
-- **Bcrypt**: A library for hashing passwords.
+7. **About Us Page**
+   - Company Overview: History, mission, and vision.
+   - Team Introduction: Key members of the team with their roles and brief bios.
+   - Customer Testimonials: Testimonials from satisfied customers.
+   - Contact Information: Detailed contact information and feedback encouragement.
 
-## Installation Guideline
+## UI/UX
 
-Follow these instructions to get the project up and running on your local machine.
+- **Quality**: Good user interface with wisely chosen colour combinations and smooth user experience.
+- **Responsiveness**: The entire website is responsive for both mobile and desktop devices.
 
-### Prerequisites
+## Bonus Features
 
-- **Node.js**: Ensure you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org/).
-- **Yarn**: Optional, but recommended as a package manager. You can install it from [yarnpkg.com](https://yarnpkg.com/).
+- **Debounce API Calls**: Reduces the number of API calls.
+- **Page Refresh Warning**: Warns when refreshing the page if the cart is not empty.
 
-### Installation Steps
+## Optional Features
 
-1. **Clone the Repository**:
+- **Integrate Stripe Payment**: For processing payments.
+- **Implement Pagination**: Custom implementation on the Products page.
+
+## Frontend Development Stack
+
+- **React** ⚛️
+- **Redux** 🌀
+
+## Live Link
+
+[Visit Live Site](https://fitness-equipment-and-accessories-backend-frontend.vercel.app/)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/fitness-equipment-and-accessories-frontend.git
+   cd fitness-equipment-and-accessories-frontend
+   ```
+1. Install dependencies:
+   ```bash
+   yarn install
+   ```
+1. Start the development server:
+   ```bash
+   yarn dev
+   ```
+1. Open your browser and navigate to:
 
    ```bash
-   git clone https://github.com/your-username/FitnessEquipmentAndAccessories.git
-   cd FitnessEquipmentAndAccessories
+   http://localhost:5173
+
    ```
+
+   **Contribution**
+   Feel free to contribute by creating pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+   **License**
+   This project is licensed under the MIT License.
