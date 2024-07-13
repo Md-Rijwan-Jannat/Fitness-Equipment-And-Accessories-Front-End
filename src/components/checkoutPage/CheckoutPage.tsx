@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,7 @@ import {
 } from "@/redux/api/baseApi";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { removeAllItemsFromCart } from "@/redux/features/products/addToCart/cartSlice";
+import { motion } from "framer-motion";
 
 const CheckoutPage = () => {
   const [userDetails, setUserDetails] = useState({
@@ -86,12 +87,22 @@ const CheckoutPage = () => {
   };
 
   return (
-    <section className="container mx-auto p-4">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="container mx-auto p-4"
+    >
       <h1 className="text-2xl font-semibold text-primaryColor mb-6">
         Checkout
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="p-4 border border-gray-200 rounded">
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="p-4 border border-gray-200 rounded"
+        >
           <h2 className="text-xl font-medium text-primaryColor mb-4">
             User Details
           </h2>
@@ -143,8 +154,13 @@ const CheckoutPage = () => {
               />
             </div>
           </form>
-        </div>
-        <div className="p-4 border border-gray-200 rounded">
+        </motion.div>
+        <motion.div
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="p-4 border border-gray-200 rounded"
+        >
           <h2 className="text-xl font-medium text-primaryColor mb-4">
             Payment Methods
           </h2>
@@ -172,22 +188,32 @@ const CheckoutPage = () => {
               <label className="ml-2 text-primaryColor">Stripe</label>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="mt-6 flex justify-end">
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        className="mt-6 flex justify-end"
+      >
         <Button
           onClick={handlePlaceOrder}
           className="bg-primaryColor text-white px-6 py-3 rounded-3xl hover:bg-buttonHoverColor"
         >
           Place Order
         </Button>
-      </div>
+      </motion.div>
       {isCreateOrderError && (
-        <div className="mt-4 text-red-600">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-4 text-red-600 border px-2 py-3"
+        >
           An error occurred while placing your order. Please try again.
-        </div>
+        </motion.div>
       )}
-    </section>
+    </motion.section>
   );
 };
 
