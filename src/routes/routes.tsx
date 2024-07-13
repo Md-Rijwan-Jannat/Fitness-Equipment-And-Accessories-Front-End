@@ -7,6 +7,8 @@ import ProductManagement from "@/pages/ProductManagement/ProductManagement";
 import { createBrowserRouter } from "react-router-dom";
 import Products from "@/pages/Products/Products";
 import AddToCart from "@/pages/AddToCart/AddToCart";
+import OrderSuccess from "@/pages/OrderSuccess/OrderSuccess";
+import NotFound from "@/components/ui/notFound";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "/add-to-card",
+        path: "/add-to-cart",
         element: <AddToCart />,
       },
       {
@@ -38,8 +40,16 @@ const router = createBrowserRouter([
         element: <Checkout />,
       },
       {
+        path: "/order-success",
+        element: <OrderSuccess />,
+      },
+      {
         path: "/about-us",
         element: <AboutUs />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },

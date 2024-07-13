@@ -4,7 +4,7 @@ import { TTestimonial } from "@/types"; // Update this import as necessary
 const TestimonialCard = ({ name, photo, review, rating }: TTestimonial) => {
   return (
     <motion.div
-      className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 flex flex-col items-center text-center"
+      className="bg-white border border-gray-200 rounded-lg shadow-lg p-6 flex flex-col items-center text-center h-72"
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.5 }}
     >

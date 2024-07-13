@@ -1,28 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+// src/redux/slices/productSlice.ts
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TProduct } from "@/types";
+import { ProductState } from "@/redux/types";
 
-export interface TProduct {
-  value: number;
-}
-
-const initialState: TProduct = {
-  value: 0,
+const initialState: ProductState = {
+  product: null,
+  status: "idle",
 };
 
-export const productSlice = createSlice({
-  name: "counter",
+const productSlice = createSlice({
+  name: "product",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByValue: (state, action) => {
-      state.value += action.payload;
+    setProduct(state, action: PayloadAction<TProduct>) {
+      state.product = action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByValue } = productSlice.actions;
+export const { setProduct } = productSlice.actions;
 export default productSlice.reducer;

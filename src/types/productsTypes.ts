@@ -33,3 +33,17 @@ export type TProductQueryParams = {
   sort?: string;
   limit?: number;
 };
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+}
+
+export interface Testimonial {
+  name: string;
+  review: string;
+  rating: number;
+  image: string;
+}

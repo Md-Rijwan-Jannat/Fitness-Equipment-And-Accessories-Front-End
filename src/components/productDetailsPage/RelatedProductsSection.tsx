@@ -2,6 +2,7 @@ import { useGetProductsQuery } from "@/redux/api/baseApi";
 import { TProduct } from "@/types";
 import SectionTittle from "@/components/ui/sectionTittle";
 import FeaturedSlider from "../homePage/featuredProducts/FeaturedSlider";
+import Loading from "../ui/loading";
 
 interface RelatedProductsSectionProps {
   category: string;
@@ -12,7 +13,7 @@ const RelatedProductsSection = ({ category }: RelatedProductsSectionProps) => {
     categories: category,
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   const relatedProducts: TProduct[] =
     data?.data.filter((product: TProduct) => product) || [];

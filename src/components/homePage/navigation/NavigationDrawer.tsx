@@ -13,7 +13,7 @@ import CancelButton from "./CancelButton";
 
 const NavigationDrawer = () => {
   const navLink =
-    "flex items-center text-primaryColor hover:text-linkHoverColor poppins-semibold rounded-2xl border border-buttonHoverColor whitespace-nowrap px-2 w-full transition-colors duration-500";
+    "flex items-center text-primaryColor hover:text-linkHoverColor poppins-regular rounded-2xl border border-buttonHoverColor whitespace-nowrap px-3 w-full transition-colors duration-500";
 
   return (
     <div className="block md:hidden">

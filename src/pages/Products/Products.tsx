@@ -1,7 +1,7 @@
 import Banner from "@/components/banner/Banner";
 import Container from "@/components/ui/container";
 import product_banner from "../../assets/images/product/product-banner.avif";
-import Product from "@/components/productPage/Product";
+import ProductPage from "@/components/productPage/ProductPage";
 
 const Products = () => {
   return (
@@ -11,11 +11,12 @@ const Products = () => {
         mediaSrc={product_banner}
         headerText1={`./Products`}
         headerText2={``}
-        buttonText="Shop Now"
+        buttonText="Contact Us"
         className="relative w-full h-[70vh] md:h-[60vh]"
+        link="/about-us"
       />
       <Container>
-        <Product />
+        <ProductPage />
       </Container>
     </section>
   );

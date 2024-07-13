@@ -79,8 +79,8 @@ const testimonials: TTestimonial[] = [
 const Testimonials = () => {
   return (
     <section className="py-12">
-      <div className="container mx-auto px-4 md:px-8">
-        <SectionTittle tittle="Testimonials" />
+      <div className="p-2">
+        <SectionTittle tittle="Customer Testimonials" />
         <TestimonialSlider testimonials={testimonials} />
         <div className="text-center mt-8">
           <Button

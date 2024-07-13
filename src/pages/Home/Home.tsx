@@ -1,4 +1,3 @@
-import Banner from "@/components/banner/Banner";
 import banner_video from "../../assets/videos/BannerVideo.mp4";
 import Container from "@/components/ui/container";
 import CategoriesSection from "@/components/homePage/categoriesSection/CategoriesSection";
@@ -7,6 +6,7 @@ import BenefitsSection from "@/components/homePage/benefitsSection/BenefitsSecti
 import ImageGallery from "@/components/homePage/imageGallery/ImageGallery";
 import ChooseUs from "@/components/homePage/chooseUs/ChooseUs";
 import Testimonials from "@/components/homePage/testimonials/Testimonials";
+import Banner from "@/components/banner/Banner";
 
 const Home = () => {
   return (
@@ -19,6 +19,7 @@ const Home = () => {
         buttonText="Shop Now"
         className="relative w-full h-[70vh] md:h-[80vh]"
         headerHeight="-mt-[70px]"
+        link="/products"
       />
       <Container>
         <CategoriesSection />

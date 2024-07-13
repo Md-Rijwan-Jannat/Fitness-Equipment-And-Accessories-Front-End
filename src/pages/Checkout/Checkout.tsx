@@ -1,8 +1,15 @@
+import CheckoutPage from "@/components/checkoutPage/CheckoutPage";
+import Container from "@/components/ui/container";
+import SectionTittle from "@/components/ui/sectionTittle";
+
 const Checkout = () => {
   return (
-    <div>
-      <h1>Checkout</h1>
-    </div>
+    <section className="mt-8 md:mt-14">
+      <Container>
+        <SectionTittle tittle="Confirm Your Order" />
+        <CheckoutPage />
+      </Container>
+    </section>
   );
 };
 

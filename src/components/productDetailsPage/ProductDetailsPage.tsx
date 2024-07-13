@@ -1,9 +1,11 @@
+// src/components/ProductDetailsPage.tsx
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useGetSingleProductQuery } from "@/redux/api/baseApi";
 import { TProduct } from "@/types";
+import { RootState } from "@/redux/store";
 import {
   Carousel,
   CarouselContent,
@@ -12,15 +14,20 @@ import {
 import Breadcrumb from "@/components/ui/breadcrumb";
 import HeroIcons from "@/components/icons/HeroIcons";
 import RelatedProductsSection from "./RelatedProductsSection";
+import { addItemToCart } from "@/redux/features/products/addToCart/cartSlice";
+import { toast } from "sonner";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import Loading from "../ui/loading";
 
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
-  const { data, error, isLoading } = useGetSingleProductQuery(id);
+  const dispatch = useAppDispatch();
+  const { data, isLoading } = useGetSingleProductQuery(id);
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const product: TProduct = data?.data;
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
-  const [cartQuantity, setCartQuantity] = useState(0);
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
@@ -39,15 +46,16 @@ const ProductDetailsPage = () => {
   };
 
   const addToCart = () => {
-    const newCartQuantity = cartQuantity + quantity;
-    if (newCartQuantity <= product.stock) {
-      setCartQuantity(newCartQuantity);
-      // Add to cart logic here (e.g., dispatch an action to add the product to the cart)
-    }
+    toast.success("Product added successfully");
+    dispatch(addItemToCart(product));
   };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error || !product) return <div>Error loading product</div>;
+  const isProductInCart = cartItems.some((item) => item?._id === product?._id);
+  console.log("isProductInCart=>", isProductInCart);
+  const cartItem = cartItems.find((item) => item?._id === product?._id);
+  const cartQuantity = cartItem ? cartItem.quantity : 0;
+
+  if (isLoading) return <Loading />;
 
   return (
     <section>
@@ -103,11 +111,11 @@ const ProductDetailsPage = () => {
           <span className="text-xl md:text-2xl font-bold text-primaryColor mb-4 flex items-center gap-3">
             ${product.price.toFixed(2)}{" "}
             {cartQuantity >= product.stock ? (
-              <p className="text text-[15px] bg-green-200 rounded-3xl px-6 poppins-regular text-red-500">
+              <p className="text-[10px] bg-red-200 rounded-3xl px-5 poppins-regular text-red-500 pt-0.5">
                 Out of Stock
               </p>
             ) : (
-              <p className="text text-[15px] bg-green-200 rounded-3xl px-6 poppins-regular text-green-500">
+              <p className="text-[10px] bg-green-200 rounded-3xl px-5 poppins-regular text-green-500 pt-0.5">
                 In Stock
               </p>
             )}
@@ -139,7 +147,7 @@ const ProductDetailsPage = () => {
                     : ""
                 }`}
             >
-              {cartQuantity >= product.stock ? "Out of Stock" : "Add to Cart"}
+              Add to Cart
             </Button>
           </div>
           <div className="flex flex-col items-start mt-10 space-y-1">
