@@ -25,10 +25,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div
-      className="flex items-center justify-center mt-10 md:mt-24
-    "
-    >
+    <div className="flex items-center justify-center mt-10 md:mt-24 border px-2 py-5 rounded-md">
       <form onSubmit={handleSubmit} className="space-y-4 w-full md:w-1/3">
         <div>
           <label htmlFor="name" className="block text-primaryColor">

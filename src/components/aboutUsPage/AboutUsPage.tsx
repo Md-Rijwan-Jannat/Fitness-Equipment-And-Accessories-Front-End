@@ -60,12 +60,12 @@ const teamMembers: TeamMember[] = [
 
 const AboutUsPage: React.FC = () => {
   return (
-    <section className="container mx-auto p-4">
+    <section>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="mb-12 p-6 bg-gray-100 rounded-lg shadow-lg"
+        className="mb-12 px-2 py-5 rounded-lg shadow-lg border"
       >
         <SectionTittle tittle="Company Overview" />
         <p className="text-buttonHoverColor mb-4">

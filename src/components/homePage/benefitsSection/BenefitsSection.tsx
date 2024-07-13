@@ -98,7 +98,7 @@ const BenefitsSection = () => {
                 <ImageModal
                   imageSrc={benefit.image}
                   imageAlt={benefit.title}
-                  text="See More"
+                  text="View image"
                 />
               </motion.div>
             </div>

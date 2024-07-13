@@ -41,9 +41,9 @@ const ProductPagination = ({
           />
         </PaginationItem>
         {generatePageNumbers().map((page) => (
-          <PaginationItem className="mx-3" key={page}>
+          <PaginationItem className="mx-1 md:mx-3" key={page}>
             <PaginationLink
-              className={`bg-gray-300 border rounded-full hover:bg-primaryColor hover:text-secondaryColor size-12 ${
+              className={`bg-gray-300 border rounded-full hover:bg-primaryColor hover:text-secondaryColor size-6 md:size-12 ${
                 page === currentPage ? "bg-primaryColor text-white" : ""
               }`}
               isActive={page === currentPage}

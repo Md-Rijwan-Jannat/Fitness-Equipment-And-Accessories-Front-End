@@ -5,14 +5,14 @@ import { Button } from "./button";
 const EmptyCardItem = () => {
   return (
     <div className="text-center flex flex-col items-center justify-center p-4 border border-gray-200 rounded">
-      <h2 className="ext-xl font-medium text-primaryColor mb-4">
+      <h2 className="text-lg font-medium text-primaryColor mb-4">
         Your Cart is Empty
       </h2>
       <p className="text-buttonHoverColor">
         Looks like you haven't added anything to your cart yet.
       </p>
       <div className="mt-5 size-32">
-        <video className="w-full" autoPlay loop muted>
+        <video autoPlay loop muted playsInline className="w-full">
           <source src={emptyCartVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

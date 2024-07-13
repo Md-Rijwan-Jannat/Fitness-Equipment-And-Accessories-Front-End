@@ -67,12 +67,14 @@ const AddToCartPage = () => {
     (item) => item.quantity > item.stock
   );
 
+  const cartLength = cartItems.length === 0;
+
   return (
-    <section className="container mx-auto p-2 md:p-4">
+    <section className="container mx-auto p-2 md:p-4 mb-5">
       <h1 className="text-2xl font-semibold text-primaryColor mb-6">
         Shopping Cart
       </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="md:grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="col-span-2">
           {cartItems.length === 0 ? (
             <EmptyCardItem />
@@ -126,32 +128,38 @@ const AddToCartPage = () => {
             ))
           )}
         </div>
-        <div className="p-4 border border-gray-200 rounded">
-          <h2 className="text-xl font-medium text-primaryColor mb-4">
-            Pricing Details
-          </h2>
-          <div className="mb-4 flex items-center gap-3">
-            <p className="text-primaryColor">Subtotal:</p>
-            <p className="text-buttonHoverColor">${total.toFixed(2)}</p>
-          </div>
-          <div className="mb-4 flex items-center gap-3">
-            <p className="text-primaryColor">Tax:</p>
-            <p className="text-buttonHoverColor">${(total * 0.1).toFixed(2)}</p>
-          </div>
-          <div className="mb-4 flex items-center gap-3">
-            <p className="text-primaryColor">Total:</p>
-            <p className="text-buttonHoverColor">${(total * 1.1).toFixed(2)}</p>
-          </div>
-          <div className="w-full h-[100px]">
-            <Button
-              onClick={handleCheckout}
-              disabled={isAnyProductOutOfStock}
-              className={`w-full bg-primaryColor text-secondaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none transition-colors duration-500 mt-[100px]${
-                isAnyProductOutOfStock ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-            >
-              Proceed to Checkout
-            </Button>
+        <div className="flex items-center justify-center w-full mt-5 md:mt-0">
+          <div className="col-auto p-4 pb-5 border border-gray-200 rounded w-full">
+            <h2 className="text-xl font-medium text-primaryColor mb-4">
+              Pricing Details
+            </h2>
+            <div className="mb-4 flex items-center gap-3">
+              <p className="text-primaryColor">Subtotal:</p>
+              <p className="text-buttonHoverColor">${total.toFixed(2)}</p>
+            </div>
+            <div className="mb-4 flex items-center gap-3">
+              <p className="text-primaryColor">Tax:</p>
+              <p className="text-buttonHoverColor">
+                ${(total * 0.1).toFixed(2)}
+              </p>
+            </div>
+            <div className="mb-4 flex items-center gap-3">
+              <p className="text-primaryColor">Total:</p>
+              <p className="text-buttonHoverColor">
+                ${(total * 1.1).toFixed(2)}
+              </p>
+            </div>
+            <div className="w-full">
+              <Button
+                onClick={handleCheckout}
+                disabled={isAnyProductOutOfStock || cartLength}
+                className={`w-full bg-primaryColor text-secondaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-3xl border border-borderColor hover:border-none transition-colors duration-500 mt-[100px]${
+                  isAnyProductOutOfStock ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                Proceed to Checkout
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
 import HeroIcons from "../icons/HeroIcons";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import Logo from "../ui/logo";
 
 const Footer = () => {
   const getCurrentYear = () => {
@@ -11,14 +13,22 @@ const Footer = () => {
     "flex items-center text-secondaryColor hover:text-linkHoverColor text-poppins-semibold";
 
   return (
-    <footer className="bg-primaryColor text-secondaryColor py-10">
+    <motion.footer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="bg-primaryColor text-secondaryColor py-10"
+    >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-col md:flex-row justify-between mb-10"
+        >
           <div className="mb-8 md:mb-0">
-            <h2 className="text-2xl font-bold mb-4">
-              Fitness Equipment And Accessories
-            </h2>
-            <p className="mb-4 text-[10px] md:text-[16px]">
+            <Logo />
+            <p className="mb-4 text-[10px] md:text-[16px] mt-3">
               Sign up for our newsletter for the latest news & product releases
             </p>
             <div className="flex gap-4 items-center">
@@ -82,51 +92,109 @@ const Footer = () => {
           <div className="mb-8 md:mb-0">
             <h2 className="text-lg font-bold mb-4">Popular Categories</h2>
             <ul>
-              <li className={`${navLink} mb-2`}>Rack & Cages</li>
-              <li className={`${navLink} mb-2`}>Benches</li>
-              <li className={`${navLink} mb-2`}>Weightlifting</li>
-              <li className={`${navLink} mb-2`}>Gym Flooring</li>
-              <li className={`${navLink} mb-2`}>Equipment Packages</li>
-              <li className={`${navLink} mb-2`}>Clearance</li>
+              {[
+                "Rack & Cages",
+                "Benches",
+                "Weightlifting",
+                "Gym Flooring",
+                "Equipment Packages",
+                "Clearance",
+              ].map((category, index) => (
+                <motion.li
+                  key={category}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className={`${navLink} mb-2`}
+                >
+                  {category}
+                </motion.li>
+              ))}
             </ul>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between mb-10">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-col md:flex-row justify-between mb-10"
+        >
           <div className="mb-8 md:mb-0">
             <h2 className="text-lg font-bold mb-4">Order & Deliveries</h2>
             <ul>
-              <li className={`${navLink} mb-2`}>Shipping</li>
-              <li className={`${navLink} mb-2`}>Return & Refunds</li>
-              <li className={`${navLink} mb-2`}>Local Pick-up</li>
-              <li className={`${navLink} mb-2`}>Local Delivery</li>
-              <li className={`${navLink} mb-2`}>Assembly Services</li>
-              <li className={`${navLink} mb-2`}>Terms & Conditions</li>
+              {[
+                "Shipping",
+                "Return & Refunds",
+                "Local Pick-up",
+                "Local Delivery",
+                "Assembly Services",
+                "Terms & Conditions",
+              ].map((item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className={`${navLink} mb-2`}
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
           </div>
           <div className="mb-8 md:mb-0">
             <h2 className="text-lg font-bold mb-4">About Us</h2>
             <ul>
-              <li className={`${navLink} mb-2`}>Privacy Policy</li>
-              <li className={`${navLink} mb-2`}>Terms of Service</li>
-              <li className={`${navLink} mb-2`}>Warranty & Service</li>
-              <li className={`${navLink} mb-2`}>Customer Care</li>
-              <li className={`${navLink} mb-2`}>Contact Us</li>
-              <li className={`${navLink} mb-2`}>Financing</li>
+              {[
+                "Privacy Policy",
+                "Terms of Service",
+                "Warranty & Service",
+                "Customer Care",
+                "Contact Us",
+                "Financing",
+              ].map((item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className={`${navLink} mb-2`}
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
           </div>
           <div className="mb-8 md:mb-0">
             <h2 className="text-lg font-bold mb-4">Resources</h2>
             <ul>
-              <li className={`${navLink} mb-2`}>Blog</li>
-              <li className={`${navLink} mb-2`}>Gift Cards</li>
-              <li className={`${navLink} mb-2`}>Commercial Accounts</li>
-              <li className={`${navLink} mb-2`}>Store Locator</li>
-              <li className={`${navLink} mb-2`}>Affiliate Program</li>
-              <li className={`${navLink} mb-2`}>Deals</li>
+              {[
+                "Blog",
+                "Gift Cards",
+                "Commercial Accounts",
+                "Store Locator",
+                "Affiliate Program",
+                "Deals",
+              ].map((item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className={`${navLink} mb-2`}
+                >
+                  {item}
+                </motion.li>
+              ))}
             </ul>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-borderColor pt-4">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex flex-col md:flex-row justify-between items-center border-t border-borderColor pt-4"
+        >
           <div className="mb-4 md:mb-0">
             <p className="text-header1Color">Supported payment methods</p>
           </div>
@@ -136,9 +204,9 @@ const Footer = () => {
               reserved.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

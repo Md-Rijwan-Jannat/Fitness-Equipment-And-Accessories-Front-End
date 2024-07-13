@@ -50,8 +50,6 @@ const ProductDetailsPage = () => {
     dispatch(addItemToCart(product));
   };
 
-  const isProductInCart = cartItems.some((item) => item?._id === product?._id);
-  console.log("isProductInCart=>", isProductInCart);
   const cartItem = cartItems.find((item) => item?._id === product?._id);
   const cartQuantity = cartItem ? cartItem.quantity : 0;
 
@@ -65,12 +63,17 @@ const ProductDetailsPage = () => {
           <div className="relative h-52 md:h-80 overflow-hidden">
             <motion.div
               className="absolute inset-0 w-full h-52 md:h-80 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
               <motion.img
                 src={selectedImage || product.images[0]}
                 alt={product.name}
                 className="w-full h-52 md:h-80 overflow-hidden object-cover"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
               />
             </motion.div>
           </div>
@@ -79,11 +82,13 @@ const ProductDetailsPage = () => {
               <CarouselContent>
                 {product.images.map((image, index) => (
                   <CarouselItem key={index} className="basis-1/4 md:basis-1/5">
-                    <img
+                    <motion.img
                       src={image}
                       alt={`${product.name} ${index + 1}`}
                       className="w-16 h-16 object-cover cursor-pointer border border-gray-200 rounded"
                       onClick={() => handleImageClick(image)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                     />
                   </CarouselItem>
                 ))}
@@ -92,10 +97,20 @@ const ProductDetailsPage = () => {
           </div>
         </div>
         <div className="p-4">
-          <h1 className="text-2xl md:text-3xl font-semibold text-primaryColor mb-3">
+          <motion.h1
+            className="text-2xl md:text-3xl font-semibold text-primaryColor mb-3"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             {product.category}/{product.name}
-          </h1>
-          <div className="flex items-center mb-8">
+          </motion.h1>
+          <motion.div
+            className="flex items-center mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
             {[...Array(5)].map((_, i) => (
               <HeroIcons
                 icon="star"
@@ -104,11 +119,21 @@ const ProductDetailsPage = () => {
               />
             ))}
             <span className="ml-2 text-primaryColor">(5 reviews)</span>
-          </div>
-          <p className="text-lg text-primaryColor mb-4">
+          </motion.div>
+          <motion.p
+            className="text-lg text-primaryColor mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
             {product.description}
-          </p>
-          <span className="text-xl md:text-2xl font-bold text-primaryColor mb-4 flex items-center gap-3">
+          </motion.p>
+          <motion.span
+            className="text-xl md:text-2xl font-bold text-primaryColor mb-4 flex items-center gap-3"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             ${product.price.toFixed(2)}{" "}
             {cartQuantity >= product.stock ? (
               <p className="text-[10px] bg-red-200 rounded-3xl px-5 poppins-regular text-red-500 pt-0.5">
@@ -119,23 +144,32 @@ const ProductDetailsPage = () => {
                 In Stock
               </p>
             )}
-          </span>
+          </motion.span>
 
-          <div className="flex items-center gap-16 mt-8">
+          <motion.div
+            className="flex items-center gap-16 mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+          >
             <div className="flex items-center">
-              <button
+              <motion.button
                 className="px-3 py-1 bg-secondaryColor text-primaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-full border border-buttonHoverColor mr-2"
                 onClick={decrementQuantity}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 -
-              </button>
+              </motion.button>
               <span className="px-4 py-2 border rounded-full">{quantity}</span>
-              <button
+              <motion.button
                 className="px-3 py-1 bg-secondaryColor text-primaryColor hover:text-secondaryColor hover:bg-buttonHoverColor rounded-full border border-buttonHoverColor ml-2"
                 onClick={incrementQuantity}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 +
-              </button>
+              </motion.button>
             </div>
             <Button
               onClick={addToCart}
@@ -149,20 +183,29 @@ const ProductDetailsPage = () => {
             >
               Add to Cart
             </Button>
-          </div>
+          </motion.div>
           <div className="flex flex-col items-start mt-10 space-y-1">
-            <p className="flex gap-1 items-center text-sm text-primaryColor poppins-regular">
+            <motion.p
+              className="flex gap-1 items-center text-sm text-primaryColor poppins-regular"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.5 }}
+            >
               <HeroIcons icon="check" className="size-5" />
               Delivery available ready to ship
-            </p>
-            <p className="flex gap-1 items-center text-sm text-primaryColor poppins-regular">
+            </motion.p>
+            <motion.p
+              className="flex gap-1 items-center text-sm text-primaryColor poppins-regular"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1, duration: 0.5 }}
+            >
               <HeroIcons icon="check" className="size-5" />
               Select a store to see local availability
-            </p>
+            </motion.p>
           </div>
         </div>
       </div>
-      {/* Add Related Products Section */}
       <RelatedProductsSection category={product.category} />
     </section>
   );

@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+import { motion } from "framer-motion";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import {
@@ -86,9 +87,19 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
   };
 
   return (
-    <div className="mb-4">
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-4"
+    >
       <h3 className="poppins-bold text-[18px] mb-5 text-lg">Filters</h3>
-      <div className="flex items-start justify-start flex-wrap gap-3">
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="flex items-start justify-start flex-wrap gap-3"
+      >
         {categories?.map((category) => (
           <label
             key={category}
@@ -104,8 +115,13 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
             <label htmlFor={category}>{category}</label>
           </label>
         ))}
-      </div>
-      <div className="mt-5 md:mt-8 flex flex-col md:flex-row justify-start gap-5">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mt-5 md:mt-8 flex flex-col md:flex-row justify-start gap-5"
+      >
         <label className="flex items-center gap-5 poppins-regular whitespace-nowrap justify-between md:justify-start">
           Min Price:
           <Input
@@ -148,17 +164,27 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
             </SelectContent>
           </Select>
         </label>
-      </div>
+      </motion.div>
 
-      <div className="flex items-start justify-start">
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="flex items-start justify-start"
+      >
         <Button
           onClick={onClearFilters}
           className="w-[100px] rounded-3xl hover:bg-buttonHoverColor transition-colors duration-500 mt-5 mb-10"
         >
           Clear Filters
         </Button>
-      </div>
-      <div className="my-8 md:my-12 flex items-center gap-5 justify-center">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="my-8 md:my-12 flex items-center gap-5 justify-center"
+      >
         <p className="poppins-regular whitespace-nowrap mt-4 md:mt-0">
           Search Here
         </p>
@@ -169,8 +195,8 @@ const ProductFilter: React.FC<ProductFilterProps> = ({
           onChange={handleSearchChange}
           className="bg-secondaryColor text-primaryColor placeholder:text-linkHoverColor rounded-3xl border border-buttonHoverColor hover:border-buttonHoverColor focus:outline-none focus:border-0 focus:ring-[.5px] md:w-[300px] xl:w-[350px] h-[35px] md:h-[50px] mt-4 md:mt-0"
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

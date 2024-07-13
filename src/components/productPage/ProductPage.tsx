@@ -98,7 +98,7 @@ const ProductPage: React.FC = () => {
   const productName = searchTerm ? searchTerm : "";
 
   return (
-    <div className="container mx-auto">
+    <div className="w-full">
       <Breadcrumb category={category} productName={productName} />
       <SectionTittle tittle="Products" />
       <div className="my-10">
@@ -112,7 +112,7 @@ const ProductPage: React.FC = () => {
           onFilterChange={handleFilterChange}
           onClearFilters={handleClearFilters}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {data?.data.map((product: TProduct) => (
             <ProductCard key={product?._id} {...product} />
           ))}
