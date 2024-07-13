@@ -79,8 +79,8 @@ We're developing a comprehensive e-commerce website for fitness equipment using 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/fitness-equipment-and-accessories-frontend.git
-   cd fitness-equipment-and-accessories-frontend
+   git clone https://github.com/Md-Rijwan-Jannat/Fitness-Equipment-And-Accessories-Front-End.git
+   cd Fitness-Equipment-And-Accessories-Front-End
    ```
 1. Install dependencies:
    ```bash
