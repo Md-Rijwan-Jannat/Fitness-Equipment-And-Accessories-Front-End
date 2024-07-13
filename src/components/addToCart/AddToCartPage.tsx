@@ -75,14 +75,14 @@ const AddToCartPage = () => {
         Shopping Cart
       </h1>
       <div className="md:grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="col-span-2">
+        <div className="col-span-2 overflow-x-auto w-full">
           {cartItems.length === 0 ? (
             <EmptyCardItem />
           ) : (
             cartItems.map((product) => (
               <div
                 key={product._id}
-                className="flex items-center justify-between pd-2 md:p-4 border-b border-gray-200"
+                className="flex items-center justify-between pd-2 md:p-4 border-b border-gray-200 py-3"
               >
                 <div className="flex items-center space-x-4">
                   <img
